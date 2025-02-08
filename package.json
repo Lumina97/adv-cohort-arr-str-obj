@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "easy": "npx ts-node problems/easy.ts",
+    "medium": "npx ts-node problems/medium.ts"
+  },
+  "devDependencies": {
+    "ts": "^0.2.2",
+    "ts-node": "^10.9.2"
+  }
+}
