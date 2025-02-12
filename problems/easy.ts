@@ -143,15 +143,22 @@ console.log(findDuplicates(input));
  */
 
 const firstUniqueCharacter = (inputString: string) => {
-  const reversedStringArray = inputString.split("").reverse();
+  const freqMap = new Map<string, number>();
 
-  while (reversedStringArray.length > 0) {
-    const char = reversedStringArray.pop();
-    if (!reversedStringArray.includes(char!)) return char;
+  for (let char of inputString) {
+    freqMap.set(char, (freqMap.get(char) || 0) + 1);
   }
+
+  for (let i = 0; i < inputString.length; i++) {
+    if (freqMap.get(inputString[i]) === 1) {
+      return i;
+    }
+  }
+
+  return -1;
 };
 
-const inputString = "leetcode";
+const inputString = "lleetcode";
 
 console.log("First Unique Character:\n");
 console.log(`input: ${inputString} | expected to be: "l"`);
